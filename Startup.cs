@@ -12,7 +12,7 @@ namespace FunctionApp35
 
     public class Startup : FunctionsStartup
     {
-        private IConfiguration Configuration;
+        public IConfiguration Configuration { get; }
 
         public Startup(IConfiguration configuration)
         {
@@ -22,7 +22,6 @@ namespace FunctionApp35
         {
             builder.Services.AddDbContext<BookContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
         }
     }
 
